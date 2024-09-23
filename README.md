@@ -82,13 +82,13 @@ git clone --recursive https://github.com/RPL-CS-UCL/SDS.git
      wget https://huggingface.co/JunkyByte/easy_ViTPose/resolve/main/torch/ap10k/vitpose-h-ap10k.pth -P easy_ViTPose/checkpoints
      ```
 
-## Running SDS
+### Running SDS
 
 Make sure to add your OpenAI API Key at agents.py
   
     ```
-    cd SDS && python sds.py task=[walk,run,hop,pace,trot]
-  ```
+   cd SDS && python sds.py task=[walk,run,hop,pace,trot]
+    ```
 
 
 ## Real-World Deployment 
