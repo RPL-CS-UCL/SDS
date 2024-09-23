@@ -6,9 +6,9 @@
 <!-- [[arXiv]](https://arxiv.org/abs/2406.01967) -->
 <!-- [[PDF]](https://eureka-research.github.io/dr-eureka/assets/dreureka-paper.pdf) -->
 
-[Jeffrey Li](https://jelipenguin.github.io/),
+[Jeffrey Li*](https://jelipenguin.github.io/), [Maria Stamatopoulou*](https://maniast.github.io/), [Dimitrios Kanoulas](https://dkanou.github.io/)
 
-University College London
+Robot Perception and Learning (RPL) , University College London
 
 </div>
 In this work we present See it. Do it. Sorted.: Quadruped Skill Synthesis from Single Video Demonstration. We provide a simulation environemnt to train low-level skill policies from demonstration videos, using the GPT-4o VLM. We also offer a pipeline to implemnet the learned skills on the on-board GPU of the real robot agent. 
