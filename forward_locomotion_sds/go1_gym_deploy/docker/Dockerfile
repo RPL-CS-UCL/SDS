@@ -168,7 +168,7 @@ RUN apt-get install -y libgl1-mesa-dev libudev1 libudev-dev
 #    sudo apt-get update
 
 RUN apt-get install -y libgtk2.0-dev pkg-config
-RUN pip3 install opencv-python opencv-contrib-python
+RUN pip3 install opencv-python opencv-contrib-python params_proto
 
 ####################################################################################
 ###### START HERE -- Install whatever dependencies you need specific to this project!

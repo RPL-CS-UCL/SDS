@@ -8,5 +8,5 @@ setup(
     license="BSD-3-Clause",
     packages=find_packages(),
     author_email='gmargo@mit.edu',
-    description='Toolkit for deployment of sim-to-real RL on the Unitree Go1.'
+    description='Toolkit for deployment of sim-to-real RL on the Unitree Go1.',
 )

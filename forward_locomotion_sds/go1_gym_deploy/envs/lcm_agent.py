@@ -64,6 +64,9 @@ class LCMAgent():
 
         self.commands_scale = np.array([self.obs_scales["lin_vel"], self.obs_scales["lin_vel"], self.obs_scales["ang_vel"]])[:self.num_commands]
 
+        self.save_contact_states = []
+
+        self.save_torques = []
 
         joint_names = [
             "FL_hip_joint", "FL_thigh_joint", "FL_calf_joint",
@@ -200,7 +203,9 @@ class LCMAgent():
                 1, -1)
             heights = np.clip(robot_height - 0.5 - self.measured_heights, -1, 1.) * self.obs_scales["height_measurements"]
             ob = np.concatenate((ob, heights), axis=1)
-
+    
+        
+        self.save_contact_states.append(self.contact_estimate)
 
         return torch.tensor(ob, device=self.device).float()
 
@@ -210,6 +215,7 @@ class LCMAgent():
     def publish_action(self, action, hard_reset=False):
 
         command_for_robot = pd_tau_targets_lcmt()
+        # print(self.cfg["control"]["action_scale"])
         self.joint_pos_target = \
             (action[0, :12].detach().cpu().numpy() * self.cfg["control"]["action_scale"]).flatten()
         self.joint_pos_target[[0, 3, 6, 9]] *= self.cfg["control"]["hip_scale_reduction"]
@@ -234,6 +240,8 @@ class LCMAgent():
 
 
         self.torques = (self.joint_pos_target - self.dof_pos) * self.p_gains + (self.joint_vel_target - self.dof_vel) * self.d_gains
+
+        self.save_torques.append(self.torques)
 
         lc.publish("pd_plustau_targets", command_for_robot.encode())
 

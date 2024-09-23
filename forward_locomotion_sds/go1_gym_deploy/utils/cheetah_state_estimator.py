@@ -283,7 +283,12 @@ class StateEstimator:
         self.R = get_rotation_matrix_from_rpy(self.euler)
 
         self.contact_estimate = np.array(msg.contact_estimate)
-        self.contact_state = 1.0 * (np.array(msg.contact_estimate) > 200)
+        feet_thresh = np.array([317,112,300,51])
+        
+        self.contact_state = 1.0 * (self.contact_estimate > feet_thresh)
+        # print(f'Contact Estimate : {self.contact_estimate}')
+        # print(f'Contact State : {self.contact_state}')
+       
 
         self.deuler_history[self.buf_idx % self.smoothing_length, :] = msg.rpy - self.euler_prev
         self.dt_history[self.buf_idx % self.smoothing_length] = time.time() - self.timuprev

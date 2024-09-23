@@ -251,6 +251,13 @@ class DeploymentRunner:
                     raise PrevPolicyException
 
             # finally, return to the nominal pose
+            current_time = time.localtime()
+
+            # Format the time as a string (HH:MM:SS)
+            formatted_time = time.strftime("%H:%M:%S", current_time)
+            np.save(f'save_contacts_{formatted_time}.npy', self.agents[agent_name].save_contact_states)
+            np.save(f'save_torques_{formatted_time}.npy', self.agents[agent_name].save_torques)
+            print('Contact Data: SAVED!')
             control_obs = self.calibrate(wait=False)
             self.logger.save(self.log_filename)
 
