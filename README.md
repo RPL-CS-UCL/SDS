@@ -85,7 +85,6 @@ git clone --recursive https://github.com/RPL-CS-UCL/SDS.git
 ### Running SDS
 
 Make sure to add your OpenAI API Key at agents.py
-  
     ```
     cd SDS && python sds.py task=[walk,run,hop,pace,trot]
     ```
