@@ -63,8 +63,6 @@ git clone --recursive https://github.com/RPL-CS-UCL/SDS.git
 1. Create a new Conda Environmnet:
    ```
    conda create -n sds python=3.8
-   ```
-   ```
    conda activate sds
    ```
 2. Install Pytorch with CUDA:
