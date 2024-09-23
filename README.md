@@ -43,12 +43,12 @@ In this work we present See it. Do it. Sorted.: Quadruped Skill Synthesis from S
 
 - [See it, Do it, Sorted. : Quadruped Skill Synthesis from Single Video Demonstration](#see-it-do-it-sorted--quadruped-skill-synthesis-from-single-video-demonstration)
   - [Table of Content:](#table-of-content)
-  - [To Start](#to-start)
-  - [Installation](#installation)
-  - [Running SDS](#running-sds)
-  - [Real World Deployment](#real-world-deployment)
-  - [Acknowledgements](#acknowledgements)
-  - [Citation](#citation)
+  - [To Start:](#to-start)
+  - [Installation:](#installation)
+  - [Running SDS:](#running-sds)
+  - [Real World Deployment:](#real-world-deployment)
+  - [Acknowledgements:](#acknowledgements)
+  - [Citation:](#citation)
 
 
 
@@ -90,6 +90,7 @@ git clone --recursive https://github.com/RPL-CS-UCL/SDS.git
    ```
 
 # Running SDS
+
 Make sure to add your OpenAI API Key at agents.py
 
 ```
