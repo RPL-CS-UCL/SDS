@@ -10,6 +10,9 @@
 
 Robot Perception and Learning (RPL) , University College London
 
+[[Website]](https://rpl-cs-ucl.github.io/SDSweb/)
+[[arXiv (coming soon!)]](https://arxiv.org/abs/2310.12931)
+
 </div>
 In this work we present See it. Do it. Sorted.: Quadruped Skill Synthesis from Single Video Demonstration. We provide a simulation environemnt to train low-level skill policies from demonstration videos, using the GPT-4o VLM. We also offer a pipeline to implemnet the learned skills on the on-board GPU of the real robot agent. 
 
