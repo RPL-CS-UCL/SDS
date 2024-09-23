@@ -76,6 +76,8 @@ cd SDS
 python sds.py task=[walk,run,hop,pace,trot]
 ```
 
+Make sure to add your OpenAI API Key at agents.py
+
 ## Results Overview
 
 #### Quadruped Trotting
