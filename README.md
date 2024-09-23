@@ -53,16 +53,13 @@ In this work we present See it. Do it. Sorted.: Quadruped Skill Synthesis from S
 
 
 
-# To Start
+# Installation
 
 Clone this repository and its submodules
 
 ```
 git clone --recursive https://github.com/RPL-CS-UCL/SDS.git
 ``
-
-# Installation
-
 1. Create a new Conda Environmnet:
    ```
    conda create -n sds python=3.8
