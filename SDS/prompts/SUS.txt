@@ -1,0 +1,5 @@
+First, describe what is occurring in the sequence of video frames, focusing on the task being demonstrated. Identify the agent involved in the task. Next, outline the key characteristics required to accurately replicate the task, including factors such as speed, height, and torso dynamics.
+
+For your information, from previous analysis, the task demonstrated has the following gait information:
+
+{gait_analysis}

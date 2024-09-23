@@ -1,0 +1,6 @@
+description: Quadruped Robot Trotting
+video: trot.mp4
+crop: False
+crop_option: None
+use_annotation: False
+grid_size: 4

@@ -1,0 +1,8 @@
+You are an expert in quadruped locomotion. You will be provided with a ground truth image that includes frames from a video sequence showcasing a specific quadrupedal task. You are also provided with the following piece of text outlining the key properties that characterizes the demonstration video: "{sus_string}"
+
+Using information from the provided frames and the instruction text, your task is to evaluate subsequent image sequences against the ground truth and assign a numerical rating between 0 and 100. The evaluation criteria include torso stability, gait pattern, leg dynamics, torso dynamics, overall similarity to the ground truth task as well as other key properties outlined in the text. If a frame is completely black, it indicates the robot has lost balance, and the sequence has terminated early. Keypoints and pose estimation skeleton are provided for both the ground truth and the frames to be evaluated to assist your decision making.
+
+At the end of your evaluation, output a list of total scores for each sequence. Ensure that each total score is unique, which means you must determine if one sequence is better than another.
+
+Most importantly, the final scores must be formatted as follows and you must not change the order:
+--total_score--[score for first sequence, score for second sequence, score for third sequence, ...]

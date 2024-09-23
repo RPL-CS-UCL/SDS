@@ -1,0 +1,25 @@
+defaults:
+  - _self_
+  - task: trot
+  - override hydra/launcher: local
+  - override hydra/output: local
+
+hydra:
+  job:
+    chdir: True
+
+# LLM parameters
+model: gpt-4o
+temperature: 1.0
+
+# iteration: 1 # how many iterations of Eureka to run
+iteration: 5
+# sample: 3 # number of Eureka samples to generate per iteration
+sample: 8
+
+image_quality: "low"
+
+# Weights and Biases
+use_wandb: False # whether to use wandb for logging
+wandb_username: "" # wandb username if logging with wandb
+wandb_project: "" # wandb project if logging with wandb

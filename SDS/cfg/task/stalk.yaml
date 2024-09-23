@@ -1,0 +1,6 @@
+description: Cat Stalking
+video: stalk.mp4
+crop: True
+crop_option: Med
+use_annotation: True
+grid_size: 4

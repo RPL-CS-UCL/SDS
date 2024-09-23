@@ -1,0 +1,13 @@
+**/*.pt
+**/*.pth
+**/*.onnx
+**/__pycache__
+**/coco/
+.DS_Store
+runs
+ckpts
+annotations
+examples
+outputs
+.ipynb_checkpoints
+easy_ViTPose.egg-info
