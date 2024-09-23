@@ -72,11 +72,9 @@ git clone --recursive https://github.com/RPL-CS-UCL/SDS.git
 3. Install the project:
    ```
    pip install -e .
-   ```
-   ```
+
    cd easy_ViTPose && pip install -e . && mkdir checkpoints
-   ```
-   ```
+
    cd ../forward_locomotion_sds && pip install -e . && cd ..
    ```
 4. Download ViTPose++ model checkpoint from huggingface
