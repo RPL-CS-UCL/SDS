@@ -162,7 +162,7 @@ if __name__ == "__main__":
 
     EUREKA_ROOT_DIR = os.getcwd()
     ROOT_DIR = f"{EUREKA_ROOT_DIR}/.."
-    openai.api_key = #REPLACE WITH OPENAI API KEY 
+    #openai.api_key = REPLACE WITH OPENAI API KEY 
     class ENV_CONFIG():
         task = "Forward Locomotion"
         env_name = "forward_locomotion_sds"
