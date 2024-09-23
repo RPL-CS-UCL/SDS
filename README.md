@@ -59,7 +59,7 @@ Clone this repository and its submodules
 
 ```
 git clone --recursive https://github.com/RPL-CS-UCL/SDS.git
-``
+```
 1. Create a new Conda Environmnet:
      ```
      conda create -n sds python=3.8
