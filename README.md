@@ -13,7 +13,20 @@ Robot Perception and Learning (RPL) , University College London
 </div>
 In this work we present See it. Do it. Sorted.: Quadruped Skill Synthesis from Single Video Demonstration. We provide a simulation environemnt to train low-level skill policies from demonstration videos, using the GPT-4o VLM. We also offer a pipeline to implemnet the learned skills on the on-board GPU of the real robot agent. 
 
-# Results Overview
+
+## Table of Content:
+
+- [See it, Do it, Sorted. : Quadruped Skill Synthesis from Single Video Demonstration](#see-it-do-it-sorted--quadruped-skill-synthesis-from-single-video-demonstration)
+  - [Result Overview:](#result-overview)
+  - [Installation:](#installation)
+  - [Running SDS:](#running-sds)
+  - [Real World Deployment:](#real-world-deployment)
+  - [Acknowledgements:](#acknowledgements)
+  - [Citation:](#citation)
+
+
+
+## Results Overview
 
 #### Quadruped Trotting
 | [Demonstration](https://www.youtube.com/watch?v=2H3dzZEi-qw) | SDS Trained                                              | Real-World                                               |
@@ -37,19 +50,6 @@ In this work we present See it. Do it. Sorted.: Quadruped Skill Synthesis from S
 | [Demonstration](https://www.youtube.com/watch?v=SMmcGUSUSA0&t=44s) | SDS Trained                                              | Real-World                                               |
 | ------------------------------------------------------------------ | -------------------------------------------------------- |--------------------------------------------------------- |
 | <img src="./README_Files/pace/demo.gif" width="250" />             | <img src="./README_Files/pace/trained.gif" width="250"/> | <img src="./README_Files/walk/trained.gif" width="250"/> |
-
-
-# Table of Content:
-
-- [See it, Do it, Sorted. : Quadruped Skill Synthesis from Single Video Demonstration](#see-it-do-it-sorted--quadruped-skill-synthesis-from-single-video-demonstration)
-  - [Table of Content:](#table-of-content)
-  - [To Start:](#to-start)
-  - [Installation:](#installation)
-  - [Running SDS:](#running-sds)
-  - [Real World Deployment:](#real-world-deployment)
-  - [Acknowledgements:](#acknowledgements)
-  - [Citation:](#citation)
-
 
 
 
