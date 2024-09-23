@@ -31,25 +31,25 @@ In this work we present See it. Do it. Sorted.: Quadruped Skill Synthesis from S
 #### Quadruped Trotting
 | [Demonstration](https://www.youtube.com/watch?v=2H3dzZEi-qw) | SDS Trained                                              | Real-World                                               |
 | ------------------------------------------------------------ | ---------------------------------------------------------|--------------------------------------------------------- |
-| <img src="./README_Files/trott/demo.gif" width="250" />      | <img src="./README_Files/walk/trained.gif" width="250"/> | <img src="./README_Files/walk/trained.gif" width="250"/> |
+| <img src="./README_Files/trott/demo.gif" width="300" />      | <img src="./README_Files/walk/trained.gif" width="300"/> | <img src="./README_Files/walk/trained.gif" width="300"/> |
 
 #### Dog Bounding
 
 | [Demonstration](https://www.youtube.com/watch?v=A8YPHoc0dR0&pp=ygULZG9nIHJ1bm5pbmc%3D) | SDS Trained                                                | Real-World                                               |
 | -------------------------------------------------------------------------------------- | ---------------------------------------------------------- |--------------------------------------------------------- |
-| <img src="./README_Files/run/demo.gif" width="250" />                                  | <img src="./README_Files/run/trained_v2.gif" width="250"/> | <img src="./README_Files/walk/trained.gif" width="250"/> |
+| <img src="./README_Files/run/demo.gif" width="300" />                                  | <img src="./README_Files/run/trained_v2.gif" width="300"/> | <img src="./README_Files/walk/trained.gif" width="300"/> |
 
 #### Deer Hopping
 
 | [Demonstration](https://www.youtube.com/watch?v=49fz_WKBrXo) | SDS Trained                                             | Real-World                                               |
 | ------------------------------------------------------------ | ------------------------------------------------------- |--------------------------------------------------------- |
-| <img src="./README_Files/hop/demo.gif" width="250" />        | <img src="./README_Files/hop/trained.gif" width="250"/> | <img src="./README_Files/walk/trained.gif" width="250"/> |
+| <img src="./README_Files/hop/demo.gif" width="300" />        | <img src="./README_Files/hop/trained.gif" width="300"/> | <img src="./README_Files/walk/trained.gif" width="300"/> |
 
 #### Horse Pacing
 
 | [Demonstration](https://www.youtube.com/watch?v=SMmcGUSUSA0&t=44s) | SDS Trained                                              | Real-World                                               |
 | ------------------------------------------------------------------ | -------------------------------------------------------- |--------------------------------------------------------- |
-| <img src="./README_Files/pace/demo.gif" width="250" />             | <img src="./README_Files/pace/trained.gif" width="250"/> | <img src="./README_Files/walk/trained.gif" width="250"/> |
+| <img src="./README_Files/pace/demo.gif" width="300" />             | <img src="./README_Files/pace/trained.gif" width="300"/> | <img src="./README_Files/walk/trained.gif" width="300"/> |
 
 
 
