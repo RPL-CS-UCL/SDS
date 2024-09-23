@@ -13,7 +13,7 @@ Robot Perception and Learning (RPL) , University College London
 </div>
 In this work we present See it. Do it. Sorted.: Quadruped Skill Synthesis from Single Video Demonstration. We provide a simulation environemnt to train low-level skill policies from demonstration videos, using the GPT-4o VLM. We also offer a pipeline to implemnet the learned skills on the on-board GPU of the real robot agent. 
 
-## Results Overview
+# Results Overview
 
 #### Quadruped Trotting
 | [Demonstration](https://www.youtube.com/watch?v=2H3dzZEi-qw) | SDS Trained                                              | Real-World                                               |
@@ -39,7 +39,7 @@ In this work we present See it. Do it. Sorted.: Quadruped Skill Synthesis from S
 | <img src="./README_Files/pace/demo.gif" width="250" />             | <img src="./README_Files/pace/trained.gif" width="250"/> | <img src="./README_Files/walk/trained.gif" width="250"/> |
 
 
-## Table of Content:
+# Table of Content:
 
 - [See it, Do it, Sorted. : Quadruped Skill Synthesis from Single Video Demonstration](#see-it-do-it-sorted--quadruped-skill-synthesis-from-single-video-demonstration)
   - [Table of Content:](#table-of-content)
@@ -53,7 +53,7 @@ In this work we present See it. Do it. Sorted.: Quadruped Skill Synthesis from S
 
 
 
-## To Start
+# To Start
 
 Clone this repository and its submodules
 
@@ -61,7 +61,7 @@ Clone this repository and its submodules
 git clone --recursive https://github.com/RPL-CS-UCL/SDS.git
 ``
 
-## Installation
+# Installation
 
 1. Create a new Conda Environmnet:
    ```
@@ -89,7 +89,7 @@ git clone --recursive https://github.com/RPL-CS-UCL/SDS.git
    wget https://huggingface.co/JunkyByte/easy_ViTPose/resolve/main/torch/ap10k/vitpose-h-ap10k.pth -P easy_ViTPose/checkpoints
    ```
 
-## Running SDS
+# Running SDS
 Make sure to add your OpenAI API Key at agents.py
 
 ```
@@ -101,7 +101,7 @@ python sds.py task=[walk,run,hop,pace,trot]
 ```
 
 
-## Real-World Deployment 
+# Real-World Deployment 
 Our deployment infrastructure is based on [Walk These Ways](https://github.com/Improbable-AI/walk-these-ways). 
 
 1. Add the (relative) path to your checkpoint to `forward_locomotion/go1_gym_deploy/scripts/deploy_policy.py`. Note that you can have multiple policies at once and switch between them.
