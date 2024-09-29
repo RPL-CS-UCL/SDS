@@ -122,6 +122,10 @@ def play_mc(iterations=1000, headless=True, label=None, dr_config=None, verbose=
         if save_video:
             img = env.render(mode='rgb_array')
             mp4_writer.append_data(img)
+        
+        if not evaluation:
+            if env.num_resets.detach().cpu().item() > 0:
+                raise RuntimeError
     
     resets = env.num_resets.detach().cpu().item()
     print("Number of Resets: ",resets)
