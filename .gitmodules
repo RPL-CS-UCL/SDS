@@ -1,0 +1,3 @@
+[submodule "easy_ViTPose"]
+	path = easy_ViTPose
+	url = https://github.com/JeliPenguin/easy_ViTPose.git
