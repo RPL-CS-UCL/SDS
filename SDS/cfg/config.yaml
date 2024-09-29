@@ -12,12 +12,24 @@ hydra:
 model: gpt-4o
 temperature: 1.0
 
+task: Forward Locomotion
+env_name: forward_locomotion_sds
+
+train_script: scripts/train.py
+reward_template_file: go1_gym/rewards/sds_reward_template.py
+reward_output_file: go1_gym/rewards/sds_reward.py
+
+
 # iteration: 1 # how many iterations of Eureka to run
 iteration: 5
 # sample: 3 # number of Eureka samples to generate per iteration
 sample: 8
+# train_iterations: 200
+train_iterations: 1000
+success_keyword: running
+failure_keyword: Traceback
 
-image_quality: "low"
+image_quality: "high"
 
 # Weights and Biases
 use_wandb: False # whether to use wandb for logging

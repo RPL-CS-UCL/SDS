@@ -1,5 +1,5 @@
-description: Horce in pacing gait
-video: pace.mp4
+description: Dog Bounding
+video: bound.mp4
 crop: False
 crop_option: None
 use_annotation: True

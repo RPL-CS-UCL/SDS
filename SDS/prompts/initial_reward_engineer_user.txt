@@ -8,4 +8,4 @@ You are also provided with the corresponding indices to access each foot contact
 - RL_foot: 12
 - RR_foot: 16
 
-{sus_string} Lastly, generate a reward function for the demonstrated task by the quadruped. Ensure the reward function accurately captures and incentivizes the completion of the demonstrated task. Additionally, as the policy will be trained in a simulated environment and deployed in the real world, prioritize stability and minimal action rate while ensuring the leg movements stay within their DOF limits.
+{sus_string} Lastly, generate a reward function for this task to be imitated by a quadruped robot. Remember that the torso should remain near a z position of 0.34 and the orientation should be perpendicular to gravity and as the policy will be trained in a simulated environment and deployed in the real world, prioritize stability while ensuring the minimal action rate, leg movements should stay within their DOF limits and avoid too frequent foot contact.

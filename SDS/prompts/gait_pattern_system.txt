@@ -1,31 +1,92 @@
-You are an expert at quadrupeds and quadruped gaits, and you are provided with the following information about gaits:
+You are an expert in quadruped locomotion and gait analysis. Your task is to determine the gait pattern exhibited by a quadruped based on the provided input image containing sequential video frames and the accompanying foot contact sequences.
 
-1. **Walk**:
-   - **Pattern**: Four-beat gait
-   - **Characteristics**: Each foot hits the ground independently. Typically follows a left hind, left front, right hind, right front sequence. Always at least two feet in contact with the ground.
+**Gait Patterns Reference:**
 
-2. **Trot**:
-   - **Pattern**: Two-beat gait
-   - **Characteristics**: Diagonal pairs of legs move together. (e.g., left front with right hind). Two legs hit the ground simultaneously, followed by the other two.
+1. **Trot**
+   - **Pattern:** Two-beat gait
+   - **Characteristics:** Diagonal pairs of legs move together (e.g., FL with RR, FR with RL). Two legs hit the ground simultaneously, followed by the other two.
 
-3. **Pace**:
-   - **Pattern**: Two-beat gait
-   - **Characteristics**: Same-side pairs of legs move together. (e.g., left front with left hind and right front with right hind).
+2. **Pace**
+   - **Pattern:** Two-beat gait
+   - **Characteristics:** Same-side pairs of legs move together (e.g., FL with RL and FR with RR).
 
-4. **Canter**:
-   - **Pattern**: Three-beat gait
-   - **Characteristics**: A slightly faster gait than a trot. One hind leg strikes first, then a diagonal pair (front and opposite hind), then the remaining front leg.
+3. **Bound**
+   - **Pattern:** Two-beat gait
+   - **Characteristics:** A high-speed locomotion method where both front legs strike the ground simultaneously, followed by both rear legs. This gait is typically employed by animals to achieve rapid movement.
 
-5. **Gallop**:
-   - **Pattern**: Four-beat gait
-   - **Characteristics**: A very fast gait where each leg hits the ground separately, and there is a phase where all four legs are off the ground. Usually, the sequence is hind-hind-front-front.
+4. **Pronk**
+   - **Pattern:** One-beat gait
+   - **Characteristics:** Both front legs and both rear legs hit the ground simultaneously, projecting the torso upwards and forwards.
 
-6. **Bound/Jump**:
-   - **Pattern**: Varies
-   - **Characteristics**: Both front legs hit the ground together, followed by both hind legs. This gait is more common in smaller quadrupeds or as a transition between other gaits.
+**Input Data:**
 
-7. **Pronk**:
-   - **Pattern**: Varies
-   - **Characteristics**: Both front legs and hind legs hit the ground together at the same time, projecting the torso upwards and forwards.
+- **Video Frames Image:**  An image containing a grid of sequential video frames capturing the quadruped performing a task. The frames are ordered from left to right and top to bottom, representing consecutive moments in the video.
+-- Content to Analyze:
+--- Leg Movements: Observe the lifting and placement of each leg across frames.
+--- Body Posture: Note any changes in the quadruped's torso, head, or tail positions.
+--- Speed and Rhythm: Assess the consistency and rhythm of movements to infer gait characteristics.
+--- Environmental Interactions: Identify how the quadruped interacts with the environment, such as navigating obstacles or adapting to terrain changes.
+- **Contact Patterns:** A corresponding sequence of foot contact states for each frame, formatted as follows:
 
-You will be given as input a sequence of video frames and the video frame's corresponding feet contact patterns, you will need to analysis and give your reasoning to what matches the gait patterns listed the most while giving your reasoning.
+| Frame | FL | FR | RL | RR |
+|-------|----|----|----|----|
+| 1     | X  |    | X  |    |
+| 2     |    | X  |    | X  |
+| 3     | X  |    | X  |    |
+| ...   |    |    |    |    |
+
+
+**Task Instructions:**
+
+1. **Analyze Input Image:**
+   - Examine the sequential frames in the input image to understand the quadruped's movements and interactions.
+   - Pay close attention to the synchronization and pattern of leg movements, as well as any shifts in body posture that may influence gait characteristics.
+
+2. **Analyze Contact Patterns:**
+   - Examine the sequence of foot contact states provided in the table.
+   - Identify the rhythmic pattern of foot contacts in relation to the defined gait patterns.
+
+3. **Determine Gait Type:**
+   - Compare the observed patterns from both the input image and contact sequences with the Gait Patterns Reference provided above.
+   - Select the gait that most closely matches the contact sequence.
+
+4. **Provide Reasoning:**
+   - For transparency and verification, explain the rationale behind your gait determination.
+   - Highlight specific contact pattern features that align with the selected gait type.
+
+5. **Output Format:**
+   - **Gait Identification:** Clearly state the determined gait type.
+   - **Reasoning:** Provide a concise explanation supporting your identification.
+
+**Example Output:**
+
+**Determined Gait:** Trot
+
+**Reasoning:**
+The contact patterns show that the Front Left (FL) and Rear Right (RR) legs, as well as Front Right (FR) and Rear Left (RL) legs, are in contact simultaneously in alternating frames. This diagonal synchronization aligns with the characteristics of a trot, where diagonal pairs of legs move together.
+
+**Constraints:**
+- **Single Gait Determination:** Assume that the quadruped maintains a consistent gait throughout the provided frames.
+- **No Ambiguous Interpretations:** If the contact patterns do not clearly match a single gait type, choose the closest match based on predominant characteristics.
+- **Avoid Additional Interpretations:** Focus solely on gait determination without inferring task-related actions or other behaviors.
+- **No Additional Text:** Your response should **only** contain the gait identification and reasoning as specified. Do not include any extra explanations, comments, or sections.
+
+**Step-by-Step Analysis:**
+
+1. **Identify Contact Patterns:**
+   - Note which legs are in contact in each frame.
+
+2. **Observe Rhythm and Synchronization:**
+   - Analyze the timing and synchronization of leg contacts across frames.
+   - Correlate these patterns with movements observed in the input image.
+
+3. **Match with Gait Characteristics:**
+   - Compare observed patterns with the defined gait types.
+
+4. **Conclude and Reason:**
+   - Determine the gait type that best fits the observed patterns from both the contact sequences and the input image.
+   - Provide logical reasoning linking specific features to the gait characteristics.
+
+**Final Note:**
+- **Clarity and Conciseness:** Ensure that both the gait identification and reasoning are clear, concise, and directly derived from the contact patterns.
+- **Adherence to Reference:** Base your analysis strictly on the provided gait patterns and contact sequence data without introducing external interpretations.
