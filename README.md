@@ -17,19 +17,16 @@ Robot Perception and Learning (RPL) , University College London
 In this work we present See it. Do it. Sorted. : Quadruped Skill Synthesis from Single Video Demonstration. We provide a simulation environemnt to train low-level skill policies from demonstration videos, using GPT-4o. We also offer a pipeline to implemnet the learned skills on the on-board GPU of the real robot agent.
 
 ## Table of Content:
-
-- [See it, Do it, Sorted. : Quadruped Skill Synthesis from Single Video Demonstration](#see-it-do-it-sorted--quadruped-skill-synthesis-from-single-video-demonstration)
-  - [Table of Content:](#table-of-content)
-  - [Results Overview](#results-overview)
-    - [Quadruped Trotting](#quadruped-trotting)
-    - [Dog Bounding](#dog-bounding)
-    - [Deer Hopping](#deer-hopping)
-    - [Horse Pacing](#horse-pacing)
-  - [Installation](#installation)
-    - [Running SDS](#running-sds)
-  - [Real-World Deployment](#real-world-deployment)
-  - [Acknowledgements](#acknowledgements)
-  - [Citation](#citation)
+- [Results Overview](#results-overview)
+  - [Quadruped Trotting](#quadruped-trotting)
+  - [Dog Bounding](#dog-bounding)
+  - [Deer Hopping](#deer-hopping)
+  - [Horse Pacing](#horse-pacing)
+- [Installation](#installation)
+  - [Running SDS](#running-sds)
+- [Real-World Deployment](#real-world-deployment)
+- [Acknowledgements](#acknowledgements)
+- [Citation](#citation)
 
 ## Results Overview
 
