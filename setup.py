@@ -2,7 +2,7 @@ from setuptools import find_packages
 from distutils.core import setup
 
 setup(
-    name='masters',
+    name='sds',
     version='1.0.0',
     author='Jeffrey Li',
     license="BSD-3-Clause",
@@ -13,7 +13,6 @@ setup(
         "numpy<1.24",
         "av",
         'matplotlib',
-        "torch==2.4.0",
         "transformers",
         "accelerate",
         "sentencepiece",

@@ -1,0 +1,11 @@
+.vscode
+*.egg-info
+__pycache__/
+
+outputs
+
+runs
+
+s3d_*
+
+kp

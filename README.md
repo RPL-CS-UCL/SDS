@@ -65,19 +65,23 @@ git clone --recursive https://github.com/RPL-CS-UCL/SDS.git
 1. Create a new Conda Environmnet:
    ```
    conda create -n sds python=3.8
+   ```
+   ```
    conda activate sds
    ```
 2. Install Pytorch with CUDA:
    ```
-   pip3 install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu121
+   pip3 install torch==2.4.0 torchvision torchaudio --index-url https://download.pytorch.org/whl/cu121
    ```
 3. Install the project:
 
    ```
-   pip install -e .
-
+   cd SDS && pip install -e .
+   ```
+   ```
    cd easy_ViTPose && pip install -e . && mkdir checkpoints
-
+   ```
+   ```
    cd ../forward_locomotion_sds && pip install -e . && cd ..
    ```
 
@@ -91,17 +95,27 @@ git clone --recursive https://github.com/RPL-CS-UCL/SDS.git
 
    ```
    tar -xvf IsaacGym_Preview_4_Package.tar.gz
+   ```
+   ```
    cd isaacgym/python
+   ```
+   ```
    pip install -e .
    ```
 
 ### Running SDS
 
-Make sure to add your OpenAI API Key at agents.py
+Make sure to add your OpenAI API Key to environment variable before running:
+```
+export OPENAI_API_KEY=xxxx
+```
+
+You can run SDS using the following:
 
 ```
 cd SDS && python sds.py task=[run,hop,pace,trot]
 ```
+
 
 ## Real-World Deployment
 

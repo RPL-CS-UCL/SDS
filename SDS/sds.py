@@ -64,7 +64,7 @@ def main(cfg):
     gt_frame_grid = create_grid_image(f'{ROOT_DIR}/videos/{demo_video_name}',grid_size=(cfg.task.grid_size,cfg.task.grid_size),crop=video_do_crop,crop_option=cfg.task.crop_option)
     save_grid_image(gt_frame_grid,"gt_demo.png")
     
-    annotated_video_path,_ = vitpose_inference(f'{ROOT_DIR}/videos/{demo_video_name}',f"{workspace_dir}/pose-estimate/gt-pose-estimate")
+    annotated_video_path = vitpose_inference(f'{ROOT_DIR}/videos/{demo_video_name}',f"{workspace_dir}/pose-estimate/gt-pose-estimate")
     gt_annotated_frame_grid = create_grid_image(annotated_video_path,grid_size=(cfg.task.grid_size,cfg.task.grid_size),crop=video_do_crop,crop_option=cfg.task.crop_option)
     save_grid_image(gt_annotated_frame_grid,"gt_demo_annotated.png")
     
@@ -118,25 +118,7 @@ def main(cfg):
         logging.info(f"Iteration {iter}: Generating {cfg.sample} samples with {cfg.model}")
 
         responses,prompt_tokens,total_completion_token,total_token = gpt_query(cfg.sample,reward_query_messages,cfg.temperature,cfg.model)
-
-        # Loading pre-queried reward functions
-        reward_dir = os.path.join(SDS_ROOT_DIR,"saved_rewards")
-        response_dir = os.path.join(reward_dir,"responses.pt")
-        prompt_token_dir = os.path.join(reward_dir,"prompt_tokens.pt")
-        total_completion_token_dir = os.path.join(reward_dir,"total_completion_token.pt")
-        total_token_dir = os.path.join(reward_dir,"total_token.pt")
-
-        torch.save(responses,response_dir)
-        torch.save(prompt_tokens,prompt_token_dir)
-        torch.save(total_completion_token,total_completion_token_dir)
-        torch.save(total_token,total_token_dir)
         
-
-        # responses = torch.load(response_dir)
-        # prompt_tokens = torch.load(prompt_token_dir)
-        # total_completion_token = torch.load(total_completion_token_dir)
-        # total_token = torch.load(total_token_dir)
-
         if cfg.sample == 1:
             logging.info(f"Iteration {iter}: GPT Output:\n " + responses[0]["message"]["content"] + "\n")
 
@@ -243,13 +225,7 @@ def main(cfg):
                 try:
                     subprocess.run(eval_script.split(" "))
                     
-                    # files_with_ctime = [(file, os.path.getctime(os.path.join(training_footage_dir, file))) for file in os.listdir(training_footage_dir)]
-                    # latest_footage = max(files_with_ctime, key=lambda x: x[1])[0]
-                    
-                    # training_frame_grid = create_grid_image(os.path.join(training_footage_dir,latest_footage),training_fixed_length=True)
-                    # save_grid_image(training_frame_grid,f"training_footage/training_frame_{iter}_{response_id}.png")
-                    
-                    annotated_video_path,_ = vitpose_inference(os.path.join(training_footage_dir,"play.mp4"),f"{workspace_dir}/pose-estimate/sample-pose-estimate")
+                    annotated_video_path = vitpose_inference(os.path.join(training_footage_dir,"play.mp4"),f"{workspace_dir}/pose-estimate/sample-pose-estimate")
                     training_frame_grid = create_grid_image(annotated_video_path,training_fixed_length=True)
                     # save_grid_image(training_annotated_frame_grid,f"training_footage/training_frame_{iter}_{response_id}_annotated.png")
                     
@@ -457,10 +433,6 @@ def main(cfg):
             
             logging.info("Evaluating...")
             eval_responses,_,_,_ = gpt_query(1,evaluator_query_messages,cfg.temperature,cfg.model)
-        
-            eval_response_dir = os.path.join(reward_dir,"eval_responses.pt") 
-            torch.save(eval_responses,eval_response_dir)
-            # eval_responses = torch.load(eval_response_dir)
         
             eval_responses = eval_responses[0]["message"]["content"]
             
