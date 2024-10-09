@@ -23,14 +23,13 @@ def plot_foot_contacts(act_foot_contacts, save_root,title='Contact Sequence',eva
 
     ax.set_ylim((-0.5, 3.5))
     
-    theme_brown = (179 / 256, 144 / 256, 117 / 256, 1)
-    google_red = (219 / 256, 68 / 256, 55 / 256, 1)
-    light_brown = (199 / 256, 111 / 256, 44/256, 1)
-    google_green = (15 / 256, 157 / 256, 88 / 256, 1)
-    brown = (216 / 256, 131 / 256, 46 / 256, 1)
+    very_dark_grey = "#4D4D4D"
+    medium_dark_grey = "#808080"
+    very_dark_brown = "#964B00"
+    medium_dark_brown = "#D2691E"
     
     foot_names = ['FL', 'RL', 'RR', 'FR']
-    foot_colors = [theme_brown, light_brown, light_brown, theme_brown]
+    foot_colors = [medium_dark_grey, medium_dark_brown, very_dark_brown, very_dark_grey]
     default_color = 'darkblue'
     foot_contacts = np.array(foot_contacts)
     

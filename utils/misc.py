@@ -78,15 +78,15 @@ def extract_training_log_dir(file_path):
 
 def block_until_training(rl_filepath, success_keyword, failure_keyword, log_status=False, iter_num=-1, response_id=-1):
     # Ensure that the RL training has started before moving on
-
     while True:
         rl_log = file_to_string(rl_filepath)
         if "running" in rl_log or "Traceback" in rl_log:
             if log_status and "running" in rl_log:
                 logging.info(f"Iteration {iter_num}: Code Run {response_id} successfully trained!")
+                return True
             if log_status and "Traceback" in rl_log:
                 logging.info(f"Iteration {iter_num}: Code Run {response_id} execution error!")
-            break
+                return False
 
 
 def construct_run_log(stdout_str):
