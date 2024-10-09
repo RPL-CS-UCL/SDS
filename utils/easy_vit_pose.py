@@ -19,7 +19,6 @@ ROOT_DIR = f"{os.getcwd()}/.."
 ViTPOSE_CPT = f"{ROOT_DIR}/easy_ViTPose/checkpoints/vitpose-h-ap10k.pth"
 MODEL_TYPE = "h"
 DATASET = "ap10k"
-YOLO_CPT = f"{ROOT_DIR}/easy_ViTPose/checkpoints/yolov8s.pt"
 SINGLE_POSE = True
 # YOLO_SIZE = 256
 YOLO_SIZE = 96
@@ -53,7 +52,7 @@ def vitpose_inference(video_path,output_path,args=default_args):
 
 
     # Initialize model
-    model = VitInference(ViTPOSE_CPT, YOLO_CPT, MODEL_TYPE, DATASET,
+    model = VitInference(ViTPOSE_CPT, MODEL_TYPE, DATASET,
                          YOLO_SIZE, is_video=args.is_video,
                          single_pose=SINGLE_POSE,
                          yolo_step=args.yolo_step)  # type: ignore

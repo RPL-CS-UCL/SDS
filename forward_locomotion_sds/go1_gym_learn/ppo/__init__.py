@@ -97,7 +97,7 @@ class Runner:
         assert logger.prefix, "you will overwrite the entire instrument server"
 
         logger.start('start', 'epoch', 'episode', 'run', 'step')
-        wandb.watch(self.alg.actor_critic, log="all", log_freq=RunnerArgs.log_freq)
+        # wandb.watch(self.alg.actor_critic, log="all", log_freq=RunnerArgs.log_freq)
 
         if init_at_random_ep_len:
             self.env.episode_length_buf = torch.randint_like(self.env.episode_length_buf,
@@ -148,12 +148,12 @@ class Runner:
                     if 'train/episode' in infos:
                         with logger.Prefix(metrics="train/episode"):
                             logger.store_metrics(**infos['train/episode'])
-                        wandb.log(infos['train/episode'], step=it)
+                        # wandb.log(infos['train/episode'], step=it)
 
                     if 'eval/episode' in infos:
                         with logger.Prefix(metrics="eval/episode"):
                             logger.store_metrics(**infos['eval/episode'])
-                        wandb.log(infos['eval/episode'], step=it)
+                        # wandb.log(infos['eval/episode'], step=it)
 
                     if 'curriculum' in infos:
                         curr_bins_train = infos['curriculum']['reset_train_env_bins']
@@ -214,11 +214,11 @@ class Runner:
                 mean_value_loss=mean_value_loss,
                 mean_surrogate_loss=mean_surrogate_loss
             )
-            wandb.log({
-                "adaptation_loss": mean_adaptation_module_loss,
-                "mean_value_loss": mean_value_loss,
-                "mean_surrogate_loss": mean_surrogate_loss,
-            }, step=it)
+            # wandb.log({
+            #     "adaptation_loss": mean_adaptation_module_loss,
+            #     "mean_value_loss": mean_value_loss,
+            #     "mean_surrogate_loss": mean_surrogate_loss,
+            # }, step=it)
 
             if RunnerArgs.save_video_interval:
                 self.log_video(it)
@@ -229,14 +229,14 @@ class Runner:
                 logger.log_metrics_summary(key_values={"timesteps": self.tot_timesteps, "iterations": it})
                 logger.job_running()
             
-            wandb.log({"timesteps": self.tot_timesteps, "iterations": it}, step=it)
+            # wandb.log({"timesteps": self.tot_timesteps, "iterations": it}, step=it)
 
             if it % RunnerArgs.save_interval == 0:
                 with logger.Sync():
                     logger.torch_save(self.alg.actor_critic.state_dict(), f"checkpoints/ac_weights_{it:06d}.pt")
                     logger.duplicate(f"checkpoints/ac_weights_{it:06d}.pt", f"checkpoints/ac_weights_last.pt")
-                    wandb.save(f"checkpoints/ac_weights_{it:06d}.pt")
-                    wandb.save(f"checkpoints/ac_weights_last.pt")
+                    # wandb.save(f"checkpoints/ac_weights_{it:06d}.pt")
+                    # wandb.save(f"checkpoints/ac_weights_last.pt")
 
                     path = f'{MINI_GYM_ROOT_DIR}/tmp/legged_data'
 
@@ -255,16 +255,16 @@ class Runner:
                     logger.upload_file(file_path=adaptation_module_path, target_path=f"checkpoints/", once=False)
                     logger.upload_file(file_path=body_path, target_path=f"checkpoints/", once=False)
 
-                    wandb.save(f"{path}/adaptation_module_latest.jit")
-                    wandb.save(f"{path}/body_latest.jit")
+                    # wandb.save(f"{path}/adaptation_module_latest.jit")
+                    # wandb.save(f"{path}/body_latest.jit")
 
             self.current_learning_iteration += num_learning_iterations
 
         with logger.Sync():
             logger.torch_save(self.alg.actor_critic.state_dict(), f"checkpoints/ac_weights_{it:06d}.pt")
             logger.duplicate(f"checkpoints/ac_weights_{it:06d}.pt", f"checkpoints/ac_weights_last.pt")
-            wandb.save(f"checkpoints/ac_weights_{it:06d}.pt")
-            wandb.save(f"checkpoints/ac_weights_last.pt")
+            # wandb.save(f"checkpoints/ac_weights_{it:06d}.pt")
+            # wandb.save(f"checkpoints/ac_weights_last.pt")
 
             path = f'{MINI_GYM_ROOT_DIR}/tmp/legged_data'
 
@@ -283,8 +283,8 @@ class Runner:
             logger.upload_file(file_path=adaptation_module_path, target_path=f"checkpoints/", once=False)
             logger.upload_file(file_path=body_path, target_path=f"checkpoints/", once=False)
 
-            wandb.save(f"{path}/adaptation_module_latest.jit")
-            wandb.save(f"{path}/body_latest.jit")
+            # wandb.save(f"{path}/adaptation_module_latest.jit")
+            # wandb.save(f"{path}/body_latest.jit")
 
     def log_video(self, it):
         if it - self.last_recording_it >= RunnerArgs.save_video_interval:

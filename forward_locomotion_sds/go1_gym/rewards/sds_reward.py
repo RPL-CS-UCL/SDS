@@ -11,48 +11,41 @@ class SDSReward():
         self.env = env
 
     def compute_reward(self):
-        env = self.env  # Necessary line to access environment parameters
+        env = self.env  # Do not skip this line. Afterwards, use env.{parameter_name} to access parameters of the environment.
     
-        # Velocity reward: Encourage forward velocity close to 2 m/s
-        target_velocity = 2.0
-        vel_reward = -torch.abs(env.base_lin_vel[:, 0] - target_velocity)
+        # Velocity reward: Encourage forward movement at 2.5 m/s in the x direction
+        target_velocity = 2.5
+        velocity_reward = -torch.square(env.base_lin_vel[:, 0] - target_velocity)
     
-        # Height reward: Encourage height around 0.34 meters
+        # Height reward: Encourage maintaining the torso height around 0.34 meters
         target_height = 0.34
-        height_reward = -torch.abs(env.root_states[:, 2] - target_height)
+        height_reward = -torch.square(env.root_states[:, 2] - target_height)
     
-        # Orientation reward: Encourage upright orientation
-        upright_reward = torch.dot(env.projected_gravity, env.gravity_vec.T).view(-1)
+        # Orientation reward: Penalize deviation from perpendicular alignment to gravity
+        orientation_penality = -torch.square(env.projected_gravity[:,2] - 1.0)
     
-        # Contact pattern reward: Encourage walking gait
-        fl_contact = env.contact_forces[:, 4, 2] > 0
-        fr_contact = env.contact_forces[:, 8, 2] > 0
-        rl_contact = env.contact_forces[:, 12, 2] > 0
-        rr_contact = env.contact_forces[:, 16, 2] > 0
+        # Contact pattern reward: Encourage a Trot gait where diagonal pairs of legs move together
+        FL_contact = (env.contact_forces[:, 4, 2] > 0).float()
+        FR_contact = (env.contact_forces[:, 8, 2] > 0).float()
+        RL_contact = (env.contact_forces[:, 12, 2] > 0).float()
+        RR_contact = (env.contact_forces[:, 16, 2] > 0).float()
+        
+        diagonal_contact = (FL_contact + RR_contact) / 2 * (1 - (FR_contact + RL_contact) / 2)
+        contact_reward = diagonal_contact
     
-        walk_pattern_reward = (fl_contact & ~fr_contact & ~rl_contact & rr_contact |
-                              ~fl_contact & fr_contact & rl_contact & ~rr_contact).float()
+        # Penalty for excessive joint actions
+        action_penalty = -torch.sum(torch.square(env.actions - env.last_actions), dim=1)
     
-        # Action rate penalty: Minimize change in actions
-        action_rate_penalty = -torch.sum(torch.square(env.actions - env.last_actions), dim=1)
+        # Combining all rewards
+        total_reward = velocity_reward + height_reward + orientation_penality + contact_reward + action_penalty
     
-        # Joint limits penalty: Encourage staying within joint limits
-        joint_limits_penalty = -torch.sum((env.dof_pos - env.default_dof_pos).abs() > env.dof_pos_limits[:, 1], dim=1).float()
-    
-        # Combine rewards
-        total_reward = 2.0 * vel_reward + 1.0 * height_reward + 1.0 * upright_reward + \
-                       0.5 * walk_pattern_reward + 0.1 * action_rate_penalty + 0.1 * joint_limits_penalty
-    
-        reward_components = {
-            "vel_reward": vel_reward,
+        return total_reward, {
+            "velocity_reward": velocity_reward,
             "height_reward": height_reward,
-            "upright_reward": upright_reward,
-            "walk_pattern_reward": walk_pattern_reward,
-            "action_rate_penalty": action_rate_penalty,
-            "joint_limits_penalty": joint_limits_penalty
+            "orientation_penality": orientation_penality,
+            "contact_reward": contact_reward,
+            "action_penalty": action_penalty
         }
-    
-        return total_reward, reward_components
     
 
 

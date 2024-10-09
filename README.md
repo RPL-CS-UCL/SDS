@@ -17,24 +17,27 @@ Robot Perception and Learning (RPL) , University College London
 In this work we present See it. Do it. Sorted. : Quadruped Skill Synthesis from Single Video Demonstration. We provide a simulation environemnt to train low-level skill policies from demonstration videos, using GPT-4o. We also offer a pipeline to implemnet the learned skills on the on-board GPU of the real robot agent.
 
 ## Table of Content:
-- [Results Overview](#results-overview)
-  - [Quadruped Trotting](#quadruped-trotting)
-  - [Dog Bounding](#dog-bounding)
-  - [Deer Hopping](#deer-hopping)
-  - [Horse Pacing](#horse-pacing)
-- [Installation](#installation)
-  - [Running SDS](#running-sds)
-- [Real-World Deployment](#real-world-deployment)
-- [Acknowledgements](#acknowledgements)
-- [Citation](#citation)
+
+- [See it, Do it, Sorted. : Quadruped Skill Synthesis from Single Video Demonstration](#see-it-do-it-sorted--quadruped-skill-synthesis-from-single-video-demonstration)
+  - [Table of Content:](#table-of-content)
+  - [Results Overview](#results-overview)
+    - [Quadruped Trotting](#quadruped-trotting)
+    - [Dog Bounding](#dog-bounding)
+    - [Deer Hopping](#deer-hopping)
+    - [Horse Pacing](#horse-pacing)
+  - [Installation](#installation)
+    - [Running SDS](#running-sds)
+  - [Real-World Deployment](#real-world-deployment)
+  - [Acknowledgements](#acknowledgements)
+  - [Citation](#citation)
 
 ## Results Overview
 
 #### Quadruped Trotting
 
-| [Demonstration](https://www.youtube.com/watch?v=2H3dzZEi-qw) | SDS Trained                                              | Real-World                                            |
-| ------------------------------------------------------------ | -------------------------------------------------------- | ----------------------------------------------------- |
-| <img src="./README_Files/trott/demo.gif" width="250" />      | <img src="./README_Files/walk/trained.gif" width="250"/> | <img src="./README_Files/walk/real.gif" width="250"/> |
+| [Demonstration](https://www.youtube.com/watch?v=2H3dzZEi-qw) | SDS Trained                                               | Real-World                                             |
+| ------------------------------------------------------------ | --------------------------------------------------------- | ------------------------------------------------------ |
+| <img src="./README_Files/trott/demo.gif" width="250" />      | <img src="./README_Files/trott/trained.gif" width="250"/> | <img src="./README_Files/trott/real.gif" width="250"/> |
 
 #### Dog Bounding
 
@@ -78,9 +81,11 @@ git clone --recursive https://github.com/RPL-CS-UCL/SDS.git
    ```
    cd SDS && pip install -e .
    ```
+
    ```
    cd easy_ViTPose && pip install -e . && mkdir checkpoints
    ```
+
    ```
    cd ../forward_locomotion_sds && pip install -e . && cd ..
    ```
@@ -96,9 +101,11 @@ git clone --recursive https://github.com/RPL-CS-UCL/SDS.git
    ```
    tar -xvf IsaacGym_Preview_4_Package.tar.gz
    ```
+
    ```
    cd isaacgym/python
    ```
+
    ```
    pip install -e .
    ```
@@ -106,6 +113,7 @@ git clone --recursive https://github.com/RPL-CS-UCL/SDS.git
 ### Running SDS
 
 Make sure to add your OpenAI API Key to environment variable before running:
+
 ```
 export OPENAI_API_KEY=xxxx
 ```
@@ -115,7 +123,6 @@ You can run SDS using the following:
 ```
 cd SDS && python sds.py task=[run,hop,pace,trot]
 ```
-
 
 ## Real-World Deployment
 
