@@ -181,5 +181,10 @@ Our deployment infrastructure is based on [Walk These Ways](https://github.com/I
     title   = {See it. Do it. Sorted.: Quadruped Skill Synthesis from Single Video Demonstration},
     author  = {Jeffrey Li*, Maria Stamatopoulou*, Dimitrios Kanoulas}
     year    = {2024},
+    url     = {https://arxiv.org/abs/2410.11571}
+}
+
+
+
 }
 ```
