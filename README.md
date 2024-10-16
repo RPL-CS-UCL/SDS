@@ -177,14 +177,13 @@ Our deployment infrastructure is based on [Walk These Ways](https://github.com/I
 ## Citation
 
 ```bibtex
-@article{li2024sds,
-    title   = {See it. Do it. Sorted.: Quadruped Skill Synthesis from Single Video Demonstration},
-    author  = {Jeffrey Li*, Maria Stamatopoulou*, Dimitrios Kanoulas}
-    year    = {2024},
-    url     = {https://arxiv.org/abs/2410.11571}
-}
-
-
-
+@misc{li2024,
+      title={SDS -- See it, Do it, Sorted: Quadruped Skill Synthesis from Single Video Demonstration}, 
+      author={Jeffrey Li and Maria Stamatopoulou and Dimitrios Kanoulas},
+      year={2024},
+      eprint={2410.11571},
+      archivePrefix={arXiv},
+      primaryClass={cs.RO},
+      url={https://arxiv.org/abs/2410.11571}, 
 }
 ```
